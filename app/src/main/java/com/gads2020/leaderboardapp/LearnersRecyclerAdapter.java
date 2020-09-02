@@ -60,7 +60,7 @@ public class LearnersRecyclerAdapter extends RecyclerView.Adapter<LearnersRecycl
 
         }else if(userData instanceof TopLearnerData){
             int hours = ((TopLearnerData)userData).getHours();
-            description = hours + "learning hours, "+country;
+            description = hours + " learning hours, "+country;
         }
         holder.descriptionTv.setText(description);
     }

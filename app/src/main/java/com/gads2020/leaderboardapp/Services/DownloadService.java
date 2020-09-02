@@ -10,9 +10,9 @@ import retrofit2.http.GET;
 
 public interface DownloadService {
 
-    @GET("api/hours")
+    @GET("hours")
     Call<List<TopLearnerData>> getLearningLeaders();
 
-    @GET("api/skilliq")
+    @GET("skilliq")
     Call<List<TopScorerData>> getTopScorers();
 }

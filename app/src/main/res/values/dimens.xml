@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="cardview_left_padding">15dp</dimen>
+    <dimen name="cardview_top_padding">10dp</dimen>
+    <dimen name="recycler_item_name_text_size">16sp</dimen>
+</resources>

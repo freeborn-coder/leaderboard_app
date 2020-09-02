@@ -12,7 +12,7 @@ import androidx.fragment.app.FragmentStatePagerAdapter;
 import static com.gads2020.leaderboardapp.Constants.TOP_LEARNERS_FRAGMENT;
 import static com.gads2020.leaderboardapp.Constants.TOP_SCORERS_FRAGMENT;
 
-public class MyPagerAdapter extends FragmentStatePagerAdapter {
+public class MyPagerAdapter extends FragmentPagerAdapter {
 
     public MyPagerAdapter(@NonNull FragmentManager fm, int behavior) {
         super(fm, behavior);
