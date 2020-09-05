@@ -1,11 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.appcompat.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
+<com.google.android.material.appbar.AppBarLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/toolbar"
     android:layout_width="match_parent"
     android:layout_height="?attr/actionBarSize"
     android:background="@color/colorPrimary"
     android:gravity="center_vertical"
     app:layout_collapseMode="pin"
     app:layout_scrollFlags="scroll|enterAlways"
-    app:title="@string/leaderboard_all_caps"/>
+    app:title="@string/leaderboard_all_caps">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            app:title="@string/leaderboard_all_caps"
+            app:layout_constraintEnd_toStartOf="@id/submit_button"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/submit_button_height"
+            android:text="@string/submit"
+            android:background="@drawable/round_shape"
+            android:textStyle="bold"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Body2"
+            android:textColor="@color/colorPrimaryDark"
+            android:id="@+id/submit_button"
+            android:layout_marginEnd="@dimen/cardview_top_padding"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</com.google.android.material.appbar.AppBarLayout>

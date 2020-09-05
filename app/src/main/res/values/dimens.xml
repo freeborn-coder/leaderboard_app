@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="cardview_left_padding">15dp</dimen>
+    <dimen name="cardview_left_padding">17dp</dimen>
     <dimen name="cardview_top_padding">10dp</dimen>
     <dimen name="recycler_item_name_text_size">16sp</dimen>
+    <dimen name="toolbar_btn_corner_radius">15dp</dimen>
+    <dimen name="submit_button_height">27dp</dimen>
+    <dimen name="edit_text_layout_height">40dp</dimen>
 </resources>

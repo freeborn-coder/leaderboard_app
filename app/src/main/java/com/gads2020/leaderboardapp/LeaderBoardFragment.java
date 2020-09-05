@@ -1,10 +1,10 @@
 package com.gads2020.leaderboardapp;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -13,23 +13,23 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
-import java.util.List;
 
-import com.gads2020.leaderboardapp.Models.TopLearnerData;
-import com.gads2020.leaderboardapp.Models.TopScorerData;
+import com.gads2020.leaderboardapp.Adapters.LearnersRecyclerAdapter;
 import com.gads2020.leaderboardapp.Models.UserData;
-import com.gads2020.leaderboardapp.Services.DownloadService;
-import com.gads2020.leaderboardapp.Services.ServiceBuilder;
 
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 
 import static com.gads2020.leaderboardapp.Constants.TOP_LEARNERS_FRAGMENT;
 
-public class LeaderBoardFragment extends Fragment {
+public class LeaderBoardFragment extends Fragment implements DownloadCallback {
 
     private RecyclerView recyclerView;
+    private LearnersRecyclerAdapter recyclerAdapter;
+    int fragmentType;
+
+    public LeaderBoardFragment(int fragmentType) {
+        this.fragmentType = fragmentType;
+    }
+
 
     @Nullable
     @Override
@@ -40,55 +40,28 @@ public class LeaderBoardFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         recyclerView = view.findViewById(R.id.recycler_view);
+        getUsersList(fragmentType);
+    }
 
-        int fragmentType = this.getArguments().getInt("type");
+    private void getUsersList(int fragmentType) {
 
-        if(this.getArguments() != null){
-            getUsersList(fragmentType);
+        if(fragmentType == TOP_LEARNERS_FRAGMENT) {
+            APIUtils.getTopLearners(this);
+        }else{
+            APIUtils.getTopScorers(this);
         }
 
     }
 
-    private void getUsersList(int fragmentType) {
-        DownloadService downloadService = ServiceBuilder.buildService(DownloadService.class);
+    @Override
+    public void onDownloadComplete(ArrayList<UserData> response) {
+        recyclerAdapter = new LearnersRecyclerAdapter(response);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        recyclerView.setAdapter(recyclerAdapter);
+    }
 
-        if(fragmentType == TOP_LEARNERS_FRAGMENT) {
-            downloadService.getLearningLeaders().enqueue(new Callback<List<TopLearnerData>>() {
-                @Override
-                public void onResponse(Call<List<TopLearnerData>> call, Response<List<TopLearnerData>> response) {
-                    if(response.isSuccessful()) {
-                        Log.d(getContext().getPackageName(), "onResponse: "+response.body().toString());
-                        LearnersRecyclerAdapter recyclerAdapter = new LearnersRecyclerAdapter(new ArrayList<UserData>(response.body()));
-                        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-                        recyclerView.setAdapter(recyclerAdapter);
-                    }
-                }
-
-                @Override
-                public void onFailure(Call<List<TopLearnerData>> call, Throwable t) {
-
-                }
-            });
-
-        }else{
-
-            downloadService.getTopScorers().enqueue(new Callback<List<TopScorerData>>() {
-                @Override
-                public void onResponse(Call<List<TopScorerData>> call, Response<List<TopScorerData>> response) {
-                    if(response.isSuccessful()) {
-                        Log.d(getContext().getPackageName(), "onResponse: "+response.body().toString());
-                        LearnersRecyclerAdapter recyclerAdapter = new LearnersRecyclerAdapter(new ArrayList<UserData>(response.body()));
-                        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-                        recyclerView.setAdapter(recyclerAdapter);
-                    }
-                }
-
-                @Override
-                public void onFailure(Call<List<TopScorerData>> call, Throwable t) {
-
-                }
-            });
-
-        }
+    @Override
+    public void onDownloadFailed(Throwable t) {
+        Toast.makeText(getContext(),t.getMessage(),Toast.LENGTH_SHORT).show();
     }
 }

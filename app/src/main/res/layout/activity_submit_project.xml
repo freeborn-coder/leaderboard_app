@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimaryDark"
+    android:padding="@dimen/toolbar_btn_corner_radius"
+    tools:context=".Submit_Project_Activity">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/project_submission"
+        android:textColor="@color/project_orange_color_light"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:id="@+id/view"
+        android:layout_width="0dp"
+        android:layout_height="2dp"
+        android:layout_marginTop="@dimen/cardview_top_padding"
+        android:background="@drawable/large_submit_btn_background_shape"
+        app:layout_constraintEnd_toEndOf="@id/textView"
+        app:layout_constraintStart_toStartOf="@id/textView"
+        app:layout_constraintTop_toBottomOf="@id/textView" />
+
+    <EditText
+        android:id="@+id/first_name_edit_text"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/edit_text_layout_height"
+        android:layout_marginEnd="5dp"
+        android:background="@drawable/text_input_round_background"
+        android:ems="10"
+        android:hint="@string/first_name"
+        android:inputType="textPersonName"
+        android:paddingStart="@dimen/cardview_top_padding"
+        android:textColor="@color/colorPrimaryDark"
+        android:textColorHint="@color/light_gray_aaa"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/email_edit_text"
+        app:layout_constraintEnd_toStartOf="@+id/last_name_edit_text"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_chainStyle="spread"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/view"
+        app:layout_constraintVertical_chainStyle="spread" />
+
+    <EditText
+        android:id="@+id/last_name_edit_text"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/edit_text_layout_height"
+        android:layout_marginStart="5dp"
+        android:background="@drawable/text_input_round_background"
+        android:ems="10"
+        android:hint="@string/last_name"
+        android:inputType="textPersonName"
+        android:paddingStart="@dimen/cardview_top_padding"
+        android:textColor="@color/colorPrimaryDark"
+        android:textColorHint="@color/light_gray_aaa"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/first_name_edit_text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/first_name_edit_text"
+        app:layout_constraintTop_toTopOf="@+id/first_name_edit_text" />
+
+    <EditText
+        android:id="@+id/email_edit_text"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/edit_text_layout_height"
+        android:background="@drawable/text_input_round_background"
+        android:ems="10"
+        android:hint="@string/email_address"
+        android:inputType="textEmailAddress"
+        android:paddingStart="@dimen/cardview_top_padding"
+        android:paddingEnd="@dimen/cardview_top_padding"
+        android:textColor="@color/colorPrimaryDark"
+        android:textColorHint="@color/light_gray_aaa"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/github_link_edit_text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/first_name_edit_text" />
+
+    <EditText
+        android:id="@+id/github_link_edit_text"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/edit_text_layout_height"
+        android:background="@drawable/text_input_round_background"
+        android:ems="10"
+        android:hint="@string/project_on_github_link"
+        android:inputType="textEmailAddress"
+        android:paddingStart="@dimen/cardview_top_padding"
+        android:paddingEnd="@dimen/cardview_top_padding"
+        android:textColor="@color/colorPrimaryDark"
+        android:textColorHint="@color/light_gray_aaa"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/submit_button_large"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/email_edit_text" />
+
+    <Button
+        android:id="@+id/submit_button_large"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/large_submit_btn_background_shape"
+        android:paddingStart="40sp"
+        android:paddingEnd="40sp"
+        android:paddingBottom="3dp"
+        android:text="@string/submit"
+        android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"
+        android:textColor="@color/white"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/github_link_edit_text" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
