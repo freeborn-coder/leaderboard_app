@@ -3,7 +3,6 @@ package com.gads2020.leaderboardapp;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.FragmentPagerAdapter;
-import androidx.fragment.app.FragmentStatePagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
 import android.content.Intent;
@@ -43,7 +42,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public void onClick(View view) {
-        Intent intent = new Intent(this,Submit_Project_Activity.class);
+        Intent intent = new Intent(this, SubmitProjectActivity.class);
         startActivity(intent);
     }
 

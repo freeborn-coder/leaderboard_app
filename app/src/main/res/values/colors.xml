@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#111111</color>
-    <color name="colorPrimaryDark">#111111</color>
+    <color name="colorPrimary">#000000</color>
+    <color name="colorPrimaryDark">#000000</color>
     <color name="colorAccent">#03DAC5</color>
     <color name="white">#FFFFFF</color>
     <color name="light_gray_aaa">#aaaaaa</color>
@@ -9,4 +9,6 @@
     <color name="dark_grey_444">#444444</color>
     <color name="green_check">#05920b</color>
     <color name="red_error">#fa0404</color>
+    <color name="dark_gray_666">#666666</color>
+    <color name="username_color_dark_333">#333333</color>
 </resources>

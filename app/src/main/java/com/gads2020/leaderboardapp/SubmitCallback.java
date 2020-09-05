@@ -4,5 +4,5 @@ public interface SubmitCallback {
 
     void onSubmitSuccessful();
 
-    void onSubmitFailed();
+    void onSubmitFailed(Throwable t);
 }

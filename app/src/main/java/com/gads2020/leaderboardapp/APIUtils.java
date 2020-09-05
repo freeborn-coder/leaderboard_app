@@ -17,12 +17,19 @@ public class APIUtils {
 
     public static GADSApiService downloadService;
     public static GADSApiService submitService;
+    private static APIUtils apiUtils;
 
     private APIUtils(){}
 
+    private static void createApiUtils(){
+        apiUtils = new APIUtils();
+        downloadService = ServiceBuilder.buildDownloadService(GADSApiService.class);
+        submitService = ServiceBuilder.buildSubmitService(GADSApiService.class);
+    }
+
     public static void getTopLearners(DownloadCallback callback){
-        if(downloadService == null){
-            downloadService = ServiceBuilder.buildDownloadService(GADSApiService.class);
+        if(apiUtils == null){
+            createApiUtils();
         }
         downloadService.getTopLearners().enqueue(new Callback<ArrayList<TopLearnerData>>() {
             @Override
@@ -41,8 +48,8 @@ public class APIUtils {
     }
 
     public static void getTopScorers(DownloadCallback callback){
-        if(downloadService == null){
-            downloadService = ServiceBuilder.buildDownloadService(GADSApiService.class);
+        if(apiUtils == null){
+            createApiUtils();
         }
 
         downloadService.getTopScorers().enqueue(new Callback<ArrayList<TopScorerData>>() {
@@ -61,11 +68,12 @@ public class APIUtils {
 
     }
 
-    public static void submitData(HashMap<String,String> params,SubmitCallback callback){
-        if(submitService == null){
-            submitService = ServiceBuilder.buildSubmitService(GADSApiService.class);
+    public static void submitData(HashMap<String,String> fields,SubmitCallback callback){
+        if(apiUtils == null){
+            createApiUtils();
         }
-        submitService.submit(params).enqueue(new Callback<Void>() {
+
+        submitService.submit(fields).enqueue(new Callback<Void>() {
             @Override
             public void onResponse(Call<Void> call, Response<Void> response) {
                 if(response.isSuccessful()){
@@ -75,7 +83,7 @@ public class APIUtils {
 
             @Override
             public void onFailure(Call<Void> call, Throwable t) {
-                callback.onSubmitFailed();
+                callback.onSubmitFailed(t);
             }
         });
     }

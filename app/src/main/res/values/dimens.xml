@@ -6,4 +6,5 @@
     <dimen name="toolbar_btn_corner_radius">15dp</dimen>
     <dimen name="submit_button_height">27dp</dimen>
     <dimen name="edit_text_layout_height">40dp</dimen>
+    <dimen name="dialog_text_size">19sp</dimen>
 </resources>

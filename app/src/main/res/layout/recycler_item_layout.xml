@@ -43,6 +43,7 @@
                     android:layout_height="wrap_content"
                     android:text="Pharis Muigai"
                     android:textStyle="bold"
+                    android:textColor="@color/username_color_dark_333"
                     android:textSize="@dimen/recycler_item_name_text_size"/>
                 <TextView
                     android:id="@+id/description_tv"
@@ -51,7 +52,7 @@
                     android:text="223 learning hours, Kenya"
                     app:layout_constraintTop_toBottomOf="@id/name_tv"
                     app:layout_constraintStart_toStartOf="@id/name_tv"
-                    android:textColor="@color/light_gray_aaa"
+                    android:textColor="@color/dark_gray_666"
                     android:layout_marginTop="5dp"/>
             </LinearLayout>
 
