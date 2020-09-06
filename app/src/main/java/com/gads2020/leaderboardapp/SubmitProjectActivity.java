@@ -156,6 +156,7 @@ public class SubmitProjectActivity extends AppCompatActivity implements View.OnC
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         if(item.getItemId() == android.R.id.home){
             finish();
+            overridePendingTransition(android.R.anim.fade_in,android.R.anim.fade_out);
         }
         return true;
     }

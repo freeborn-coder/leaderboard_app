@@ -31,7 +31,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         ImageView splashImage = findViewById(R.id.splash_image);
 
-        splashImage.animate().alpha(0f).setDuration(3000).setStartDelay(3000).setListener(new AnimatorListenerAdapter() {
+        splashImage.animate().alpha(0f).setDuration(2800).setStartDelay(3000).setListener(new AnimatorListenerAdapter() {
             @Override
             public void onAnimationEnd(Animator animation) {
                 splashImage.setVisibility(View.GONE);
@@ -57,6 +57,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View view) {
         Intent intent = new Intent(this, SubmitProjectActivity.class);
         startActivity(intent);
+        overridePendingTransition(android.R.anim.fade_in,android.R.anim.fade_out);
     }
 
 }
