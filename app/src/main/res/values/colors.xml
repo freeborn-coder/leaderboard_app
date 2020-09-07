@@ -11,4 +11,6 @@
     <color name="red_error">#fa0404</color>
     <color name="dark_gray_666">#666666</color>
     <color name="username_color_dark_333">#333333</color>
+
+    <color name="black_overlay">#66000000</color>
 </resources>

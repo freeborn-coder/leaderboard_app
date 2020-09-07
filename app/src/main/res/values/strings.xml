@@ -11,4 +11,7 @@
     <string name="yes">Yes</string>
     <string name="submission_successful">Submission Successful</string>
     <string name="submission_not_successful">Submission not Successful</string>
+    <string name="title_activity_splash_screen">FullscreenActivity</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
 </resources>

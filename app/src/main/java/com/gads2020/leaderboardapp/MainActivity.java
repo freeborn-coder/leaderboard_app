@@ -5,14 +5,10 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.FragmentPagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
-import android.animation.Animator;
-import android.animation.AnimatorListenerAdapter;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.view.animation.Animation;
 import android.widget.Button;
-import android.widget.ImageView;
 
 import com.gads2020.leaderboardapp.Adapters.MyPagerAdapter;
 import com.google.android.material.tabs.TabLayout;
@@ -28,15 +24,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        ImageView splashImage = findViewById(R.id.splash_image);
-
-        splashImage.animate().alpha(0f).setDuration(2800).setStartDelay(3000).setListener(new AnimatorListenerAdapter() {
-            @Override
-            public void onAnimationEnd(Animator animation) {
-                splashImage.setVisibility(View.GONE);
-            }
-        });
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);

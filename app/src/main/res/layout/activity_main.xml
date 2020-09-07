@@ -7,14 +7,6 @@
     android:orientation="vertical"
     tools:context=".MainActivity">
 
-    <ImageView
-        android:id="@+id/splash_image"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:src="@drawable/gads"
-        android:elevation="5dp"
-        android:background="@color/colorPrimaryDark"/>
-
     <include layout="@layout/toolbar_layout"
         android:id="@+id/toolbar_container"
         android:layout_height="?attr/actionBarSize"
@@ -23,19 +15,20 @@
     <androidx.viewpager.widget.ViewPager
         android:id="@+id/view_pager"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@id/toolbar_container">
 
         <com.google.android.material.tabs.TabLayout
             android:id="@+id/tab_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:tabGravity="fill"
-            app:tabIndicatorColor="@color/white"
-            app:tabTextColor="@color/white"
             android:minHeight="?android:attr/actionBarSize"
             app:tabBackground="@color/colorPrimary"
-            app:tabIndicatorHeight="4dp"/>
+            app:tabGravity="fill"
+            app:tabIndicatorColor="@color/white"
+            app:tabIndicatorHeight="4dp"
+            app:tabTextColor="@color/white" />
 
     </androidx.viewpager.widget.ViewPager>
 
