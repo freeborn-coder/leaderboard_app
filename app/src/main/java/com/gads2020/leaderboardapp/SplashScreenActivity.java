@@ -9,7 +9,6 @@ import android.os.Looper;
 
 public class SplashScreenActivity extends AppCompatActivity {
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

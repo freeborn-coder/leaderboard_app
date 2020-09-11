@@ -27,7 +27,7 @@ import static com.gads2020.leaderboardapp.Constants.LAST_NAME_PARAM;
 
 public class SubmitProjectActivity extends AppCompatActivity implements View.OnClickListener,SubmitCallback {
 
-    Button button;
+    Button submitButton;
     EditText firstNameEditText, lastNameEditText, emailEditText, githubLinkEditText;
 
     @Override
@@ -39,8 +39,8 @@ public class SubmitProjectActivity extends AppCompatActivity implements View.OnC
         toolbar.setTitle("");
         setSupportActionBar(toolbar);
 
-        button = findViewById(R.id.submit_button_large);
-        button.setOnClickListener(this);
+        submitButton = findViewById(R.id.submit_button_large);
+        submitButton.setOnClickListener(this);
 
         firstNameEditText = findViewById(R.id.first_name_edit_text);
         lastNameEditText = findViewById(R.id.last_name_edit_text);

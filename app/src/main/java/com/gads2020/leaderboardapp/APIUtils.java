@@ -1,5 +1,7 @@
 package com.gads2020.leaderboardapp;
 
+import android.util.Log;
+
 import com.gads2020.leaderboardapp.Models.TopLearnerData;
 import com.gads2020.leaderboardapp.Models.TopScorerData;
 import com.gads2020.leaderboardapp.Models.UserData;
